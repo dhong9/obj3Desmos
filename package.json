@@ -1,0 +1,24 @@
+{
+  "name": "obj3Desmos",
+  "version": "1.0.0",
+  "description": "Converts an OBJ file to a format that Desmos can read",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhong9/obj3Desmos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dhong9/obj3Desmos/issues"
+  },
+  "homepage": "https://github.com/dhong9/obj3Desmos#readme",
+  "devDependencies": {
+    "electron": "^11.2.3"
+  }
+}
