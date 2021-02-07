@@ -28,7 +28,7 @@ function obj2Desmos(src, dest) {
             }
         }
 
-        fs.writeFile(dest, vertices.join`\n`, err => {
+        fs.writeFile(dest, eqns.join`\n`, err => {
             if (err)
                 throw err;
         });
@@ -44,6 +44,6 @@ function parseFile() {
     }
     remote.dialog.showSaveDialog(WIN, options).then(response => {
         if (!response.canceled)
-            obj2Desmos(objFile);
+            obj2Desmos(objFile, response.filePath);
     });
 }
