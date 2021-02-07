@@ -4,14 +4,15 @@ var objFile = "";
 
 let types = [
  {name: 'Models', extensions: ['obj']}
-],
+];
 
-options = {filters:types, properties:['openFile']}
+options = {filters:types, properties:['openFile']};
 
 function openFile() {
     dialog.showOpenDialog(options).then(response => {
         if (!response.canceled) {
-            objFile = response.filePaths[0];
+            objFile = response.filePaths[0]; // Get file name
+            document.getElementById("fileName").value = objFile;
         }
     })
 }
