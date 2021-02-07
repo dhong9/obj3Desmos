@@ -27,5 +27,11 @@ function obj2Desmos(src) {
                 )
             }
         }
+
+        console.log(vertices.length)
     })
+}
+
+function parseFile() {
+    obj2Desmos(objFile);
 }
