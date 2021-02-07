@@ -20,7 +20,7 @@ function obj2Desmos(src, dest) {
             else if (dataType === "f") {
                 // Get vertices that form triangle
                 eqns.push(
-                    rest.map(v => {
+                    [...rest, rest[0]].map(v => {
                         const [x, y, z] = vertices[v.split`/`[0] - 1]; // Indices are 1-based
                         return `\\left(x_{2}\\left(${x},\\ ${y},\\ ${z}\\right),\\ y_{2}\\left(${x},\ ${y},\\ ${z}\\right)\\right)`; // Desmos format
                     }).join`,`
