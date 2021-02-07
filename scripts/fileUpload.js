@@ -1,4 +1,4 @@
-const { dialog } = require('electron').remote;
+const { remote } = require('electron');
 
 var objFile = "";
 
@@ -9,10 +9,11 @@ let types = [
 options = {filters:types, properties:['openFile']};
 
 function openFile() {
-    dialog.showOpenDialog(options).then(response => {
+    remote.dialog.showOpenDialog(options).then(response => {
         if (!response.canceled) {
             objFile = response.filePaths[0]; // Get file name
-            document.getElementById("fileName").value = objFile;
+            document.getElementById("fileName").value = objFile; // Show selected file name
+            document.getElementById("parseBtn").disabled = false;
         }
     })
 }

@@ -2,7 +2,7 @@ const fs = require("fs");
 
 var eqns = [];
 
-function obj2Desmos(src) {
+function obj2Desmos(src, dest) {
     eqns = []; // Reset equations data
     fs.readFile(src, (err, data) => {
         if (err)
@@ -28,10 +28,22 @@ function obj2Desmos(src) {
             }
         }
 
-        console.log(vertices.length)
+        fs.writeFile(dest, vertices.join`\n`, err => {
+            if (err)
+                throw err;
+        });
     })
 }
 
 function parseFile() {
-    obj2Desmos(objFile);
+    const WIN = remote.getCurrentWindow();
+    const options = {
+        filters: [
+            {name: "Text", extensions: ['txt']}
+        ]
+    }
+    remote.dialog.showSaveDialog(WIN, options).then(response => {
+        if (!response.canceled)
+            obj2Desmos(objFile);
+    });
 }
